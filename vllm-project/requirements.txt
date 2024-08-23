@@ -1,0 +1,4 @@
+numpy
+vllm
+fastapi
+uvicorn
