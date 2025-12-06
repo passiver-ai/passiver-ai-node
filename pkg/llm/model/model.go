@@ -80,9 +80,9 @@ func (mm *ModelManager) RunInference(input string, params map[string]interface{}
 	}
 
 	// Get executable path based on OS
-	execName := "main"
+	execName := "llama-cli"
 	if runtime.GOOS == "windows" {
-		execName = "main.exe"
+		execName = "llama-cli.exe"
 	}
 
 	// Prepare command arguments
@@ -102,7 +102,7 @@ func (mm *ModelManager) RunInference(input string, params map[string]interface{}
 	}
 
 	// Run llama.cpp inference
-	cmd := exec.Command(filepath.Join(mm.llamaPath, execName), args...)
+	cmd := exec.Command(filepath.Join(mm.llamaPath, "build/bin", execName), args...)
 	stdout, err := cmd.StdoutPipe()
 	if err != nil {
 		return "", fmt.Errorf("failed to create stdout pipe: %v", err)

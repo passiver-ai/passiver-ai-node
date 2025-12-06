@@ -92,7 +92,7 @@ func main() {
 		node = router.NewRouterNode(*nodeID)
 	case common.LLMNode:
 		modelConfig := llm.ModelConfig{
-			ModelName:    config.DefaultModel,
+			ModelName:    "llama-7b-q4",
 			ModelVersion: "1.0",
 			BatchSize:    32,
 			MaxSequence:  1024,
